@@ -1,9 +1,19 @@
 #include <iostream>
+#include "game.h"
 
-using namespace std;
 
 int main()
 {
-    cout << "Hello World!" << endl;
+    Game game;
+
+    while(game.running())
+    {
+        //update
+        game.update();
+
+        //render
+        game.render();
+    }
+
     return 0;
 }
