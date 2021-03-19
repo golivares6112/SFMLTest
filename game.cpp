@@ -13,10 +13,29 @@ void Game::initWindow()
     this->window = new sf::RenderWindow(this->videoMode, "Game One", sf::Style::Titlebar | sf::Style::Close);
 }
 
+void Game::initFont()
+{
+    if(!this->fuente.loadFromFile("Fonts/04b-25.ttf"))
+    {
+        std::cout<<"ERROR FONT :: Error al cargar las fuentes"<<std::endl;
+    }
+}
+
+void Game::initText()
+{
+    this->text.setFont(this->fuente);
+    this->text.setCharacterSize(25);
+    this->text.setFillColor(sf::Color::Red);
+    this->text.setPosition(sf::Vector2f(300.f, 200.f));
+    this->text.setString("Hola Mundo");
+}
+
 Game::Game()
 {
     this->initializeVariables();
     this->initWindow();
+    this->initFont();
+    this->initText();
 }
 
 Game::~Game()
@@ -60,6 +79,7 @@ void Game::render()
     this->window->clear(sf::Color::Black);
 
     //draw game objects
+    this->window->draw(this->text);
 
     this->window->display();
 }

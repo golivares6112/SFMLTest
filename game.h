@@ -1,6 +1,7 @@
 #ifndef GAME_H
 #define GAME_H
 
+#include <iostream>
 #include <SFML/Graphics.hpp>
 #include <SFML/System.hpp>
 #include <SFML/Window.hpp>
@@ -10,13 +11,20 @@
 class Game
 {
 private:
-        //private initialization functions
-        void initializeVariables();
-        void initWindow();
         //member variables
         sf::RenderWindow* window;
         sf::VideoMode videoMode;
         sf::Event event;
+
+        //resources
+        sf::Font fuente;
+        sf::Text text;
+
+        //private initialization functions
+        void initializeVariables();
+        void initWindow();
+        void initFont();
+        void initText();
 
 public:
         //constructor and destructor
